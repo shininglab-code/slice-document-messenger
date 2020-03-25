@@ -1,0 +1,23 @@
+messenger:
+    - 'clean:tmp'
+    - 'concat:messenger'
+    - 'strip_code:messenger'
+examplesMessenger :
+    - 'messenger'
+    - 'babel:examples'
+    - 'clean:tmp'
+examples :
+    - 'clean:examples'
+    - 'examplesMessenger'
+dist :
+    - 'test'
+    - 'clean:dist'
+    - 'examplesMessenger'
+    - 'messenger'
+    - 'babel:dist'
+    - 'babel:distMin'
+    - 'clean:tmp'
+test :
+    - 'eslint:messenger'
+default :
+    - 'test'

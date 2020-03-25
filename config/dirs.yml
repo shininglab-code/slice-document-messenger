@@ -1,0 +1,12 @@
+src :
+    core : 'src'
+    messenger : '<%= dirs.src.core %>'
+examples :
+    core : 'examples'
+    messenger : '<%= dirs.examples.core %>/assets/slice-document-messenger'
+dist :
+    core : 'dist'
+    messenger : '<%= dirs.dist.core %>'
+tmp :
+    core : 'tmp'
+    js : '<%= dirs.tmp.core %>/js'

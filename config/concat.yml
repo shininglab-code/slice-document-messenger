@@ -1,0 +1,12 @@
+messenger :
+    options:
+        sourceMap: true
+    dest: '<%= dirs.tmp.js %>/slice-document-messenger.js'
+    src:
+        - '<%= dirs.src.messenger %>/SliceMessage.js'
+        - '<%= dirs.src.messenger %>/SliceMessageTransport.js'
+        - '<%= dirs.src.messenger %>/SliceLocalStorageTransport.js'
+        - '<%= dirs.src.messenger %>/SliceMessageBox.js'
+        - '<%= dirs.src.messenger %>/SliceMessenger.js'
+        - '<%= dirs.src.messenger %>/SliceMessengerFactory.js'
+        - '<%= dirs.src.messenger %>/build/global-messenger.js'

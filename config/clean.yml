@@ -1,0 +1,6 @@
+tmp:
+    - '<%= dirs.tmp.core %>'
+examples:
+    - '<%= dirs.examples.messenger %>'
+dist:
+    - '<%= dirs.dist.core %>'

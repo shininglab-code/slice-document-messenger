@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+    <title>Slice Document Messenger - Root</title>
+    <link href="./assets/bootstrap-4.4.1/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-md navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="https://codecanyon.net/user/shininglab"><b>shininglab</b></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse ml-md-4" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-item nav-link" href="https://github.com/shininglab-code/slice-document-messenger">Slice Document Messenger (GitHub)</a>
+                    <a class="nav-item nav-link" href="https://shininglab-code.com/slice/">Slice Slider and Carousel</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-lg-7">
+                <h1 class="my-5 h2">Slice Document Messenger - Root</h1>
+                <h4 class="mb-3">Add synchronized blocks</h4>
+                <form id="root-blocks-form" action="#" method="post">
+                    <div class="form-group">
+                        <label for="messageTitle">Title</label>
+                        <input required="true" type="text" class="form-control" name="messageTitle" id="messageTitle" aria-describedby="emailHelp">
+                    </div>
+                    <div class="form-group">
+                        <label for="messageType">Type</label>
+                        <select required="true" class="form-control" name="messageType" id="messageType">
+                            <option value="default">Default</option>
+                            <option value="primary">Primary</option>
+                            <option value="secondary">Secondary</option>
+                            <option value="success">Success</option>
+                            <option value="danger">Danger</option>
+                            <option value="warning">Warning</option>
+                            <option value="info">Info</option>
+                            <option value="light">Light</option>
+                            <option value="dark">Dark</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="messageText">Text</label>
+                        <textarea required="true" class="form-control" name="messageText" id="messageText" rows="3"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Send</button>
+                </form>
+                <h4 class="mt-5 mb-3">Blocks</h4>
+                <div id="root-blocks-container" class="row">
+                    <div class="col-sm-6 col-lg-4">
+                        <div data-id="block-1" data-type="primary" class="alert alert-primary mb-3">
+                            <h5 class="alert-heading">First block</h5>
+                            <p class="alert-text">This is first block loaded.</p>
+                            <hr>
+                            <a href="#" class="alert-link remove-block">remove</a>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-4">
+                        <div data-id="block-2" data-type="success" class="alert alert-success mb-3">
+                            <h5 class="alert-heading">Second block</h5>
+                            <p class="alert-text">This is secont block loaded.</p>
+                            <hr>
+                            <a href="#" class="alert-link remove-block">remove</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-5 d-grid">
+                <div class="w-100 h-100 d-grid bg-light pt-3 pt-md-0 pl-md-3">
+                    <iframe id="frame-window" class="w-100 h-100 pt-3 pt-md-0 pl-md-3 bg-white" src="frame.html?messengerId=sliceFrameId-21444" frameborder="no"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="container my-5 pt-5 text-muted text-center text-small">
+        <hr>
+        <p class="mb-1">© 2020 shininglab</p>
+        <ul class="list-inline">
+            <li class="list-inline-item">
+                <a href="https://github.com/shininglab-code/slice-document-messenger">LICENSE (MIT)</a>
+            </li>
+            <li class="list-inline-item">
+                <a href="https://github.com/shininglab-code/slice-document-messenger">Slice Document Messenger (GitHub)</a>
+            </li>
+            <li class="list-inline-item">
+                <a href="https://shininglab-code.com/slice/">Slice Slider and Carousel</a>
+            </li>
+        </ul>
+    </footer>
+
+    <!-- Load React. -->
+    <script src="./assets/slice-document-messenger/slice-document-messenger.js" crossorigin></script>
+    <script src="./assets/js/root-script.js" crossorigin></script>
+</body>
+</html>

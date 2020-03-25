@@ -1,0 +1,34 @@
+options:
+    sourceMap: true
+    plugins:
+        -   '@babel/plugin-proposal-class-properties'
+        -   -   'comments'
+            -   remove: 'all'
+        -   -   '@comandeer/babel-plugin-banner'
+            -   banner: <%= messenger.banner %>
+examples :
+    options :
+        presets:
+            -   -   '@babel/preset-env'
+                -   loose: true
+                    modules: 'umd'
+    files:
+        '<%= dirs.examples.messenger %>/slice-document-messenger.js': '<%= strip_code.messenger.dest %>'
+dist :
+    options :
+        presets:
+            -   -   '@babel/preset-env'
+                -   loose: true
+                    modules: 'umd'
+    files:
+        '<%= dirs.dist.messenger %>/slice-document-messenger.js': '<%= strip_code.messenger.dest %>'
+distMin :
+    options :
+        minified: true
+        presets:
+            -   -   '@babel/preset-env'
+                -   loose: true
+                    modules: 'umd'
+            -   'minify'
+    files:
+        '<%= dirs.dist.messenger %>/slice-document-messenger.min.js': '<%= strip_code.messenger.dest %>'

@@ -1,0 +1,7 @@
+options :
+    interrupt : true
+
+babel :
+    files :
+        - '<%= dirs.src.messenger %>/**'
+    tasks : ['examplesMessenger']

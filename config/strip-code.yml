@@ -1,0 +1,9 @@
+options:
+    blocks:
+        -   start_block: /* import start */
+            end_block: /* import end */
+        -   start_block: /* export start */
+            end_block: /* export end */
+messenger:
+    src: <%= concat.messenger.dest %>
+    dest: <%= concat.messenger.dest %>

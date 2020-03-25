@@ -1,0 +1,3 @@
+messenger :
+    src:
+        - '<%= dirs.src.messenger %>/*.js'

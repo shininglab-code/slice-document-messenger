@@ -1,0 +1,35 @@
+{
+  "title": "Slice document messenger",
+  "name": "slice-document-messenger",
+  "version": "1.0.0",
+  "description": "Send messages between browser windows, tabs, iframes.",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/shininglab-code/slice-document-messenger.git"
+  },
+  "main": "index.js",
+  "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.8.7",
+    "@babel/plugin-proposal-class-properties": "^7.8.3",
+    "@babel/preset-env": "^7.8.7",
+    "@comandeer/babel-plugin-banner": "^5.0.0",
+    "babel-eslint": "^10.1.0",
+    "babel-plugin-comments": "^1.0.4",
+    "babel-preset-minify": "^0.5.1",
+    "eslint": "^6.8.0",
+    "grunt": "^1.1.0",
+    "grunt-babel": "^8.0.0",
+    "grunt-contrib-clean": "^2.0.0",
+    "grunt-contrib-concat": "^1.0.1",
+    "grunt-contrib-watch": "^1.1.0",
+    "grunt-eslint": "^22.0.0",
+    "grunt-strip-code": "^1.0.6"
+  },
+  "scripts": {
+    "test": "grunt test"
+  },
+  "author": "shininglab",
+  "license": "MIT",
+  "dependencies": {}
+}

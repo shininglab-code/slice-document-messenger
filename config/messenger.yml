@@ -1,0 +1,1 @@
+banner: "/*!\n  * <%= pkg.title || pkg.name %>.<%= pkg.version %> (https://github.com/shininglab-code/slice-document-messenger)\n  * Copyright 2020 shininglab (https://github.com/shininglab-code)\n  * Licensed under MIT\n  */"
