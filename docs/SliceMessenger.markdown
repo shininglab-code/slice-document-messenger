@@ -1,6 +1,6 @@
 ### SliceMessenger
 
-Used to send [SliceMessage](docs/SliceMessage.markdown) throught [SliceMessageTransport](docs/SliceMessageTransport.markdown) and distribute it to its recievers, either [SliceMessageBox](docs/SliceMessageBox.markdown) or [function](https://developer.mozilla.org/docs/Web/JavaScript/Guide/Functions).
+Used to send [SliceMessage](SliceMessage.markdown) throught [SliceMessageTransport](SliceMessageTransport.markdown) and distribute it to its recievers, either [SliceMessageBox](SliceMessageBox.markdown) or [function](https://developer.mozilla.org/docs/Web/JavaScript/Guide/Functions).
 
 #### `constructor(id, transport)`
 

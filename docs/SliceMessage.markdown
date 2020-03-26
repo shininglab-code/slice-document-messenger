@@ -18,9 +18,10 @@ const myMessage = new SliceMessage('message', {
 
 #### Properties
 
-Name | Type | Description
-name | string | Message name
-data | variable | Message data
+| Name | Type | Description |
+| --- | --- | --- |
+| name | string | Message name |
+| data | variable | Message data |
 
 #### Methods
 
@@ -57,8 +58,9 @@ const myMessageString = myMessage.toString();
 
 ##### `static fromJSON(str)`
 
-Parses `str` and creates new [SliceMessage](#slicemessage).
+Parses `str` and creates new [SliceMessage](#slicemessage).  
 `str` should be in JSON format, like:
+`
 {
     "name": "Message name",
     "data": {
@@ -67,6 +69,7 @@ Parses `str` and creates new [SliceMessage](#slicemessage).
         "variableN": "valueN"
     }
 }
+`
 
 ###### Example:
 ```
