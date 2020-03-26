@@ -8,7 +8,7 @@ Message class, stores message name and data. The one that is transportend.
 
 ###### Example:
 
-```
+```javascript
 const myMessage = new SliceMessage('message', {
     variable1: 'value1',
     variable2: 'value2',
@@ -25,27 +25,13 @@ const myMessage = new SliceMessage('message', {
 
 #### Methods
 
-##### `static create(name, data)`
-
-Creates new [SliceMessage](#slicemessage) with provided `name` and `data`.
-
-###### Example:
-
-```
-const myMessage = SliceMessage.create('message', {
-    variable1: 'value1',
-    variable2: 'value2',
-    variableN: 'valueN'
-});
-```
-
 ##### `toString()`
 
 Converts [SliceMessage](#slicemessage) message object to string.
 
 ###### Example:
 
-```
+```javascript
 const myMessage = SliceMessage.create('message', {
     variable1: 'value1',
     variable2: 'value2',
@@ -56,11 +42,27 @@ const myMessageString = myMessage.toString();
 // '{"name": "Message name","data": {"variable1": "value1","variable2": "value2","variableN": "valueN"}}'
 ```
 
+#### Static methods
+
+##### `static create(name, data)`
+
+Creates new [SliceMessage](#slicemessage) with provided `name` and `data`.
+
+###### Example:
+
+```javascript
+const myMessage = SliceMessage.create('message', {
+    variable1: 'value1',
+    variable2: 'value2',
+    variableN: 'valueN'
+});
+```
+
 ##### `static fromJSON(str)`
 
 Parses `str` and creates new [SliceMessage](#slicemessage).  
 `str` should be in JSON format, like:
-`
+```json
 {
     "name": "Message name",
     "data": {
@@ -69,10 +71,10 @@ Parses `str` and creates new [SliceMessage](#slicemessage).
         "variableN": "valueN"
     }
 }
-`
+```
 
 ###### Example:
-```
+```javascript
 const myJSON = '{"name": "Message name","data": {"variable1": "value1","variable2": "value2","variableN": "valueN"}}';
 const myMessage = SliceMessage.fromJSON(myJSON);
 ```
