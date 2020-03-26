@@ -14,10 +14,10 @@ import SliceMessenger from './SliceMessenger.js'
  */
 class SliceMessengerFactory {
     /**
-     * Messages transport
+     * Messages transports
      * @static
      */
-    static transport = []
+    static transports = []
 
     /**
      * Add transport
@@ -27,8 +27,8 @@ class SliceMessengerFactory {
      */
     static addTransport(transport) {
         if (transport instanceof SliceMessageTransport) {
-            if (SliceMessengerFactory.transport.indexOf(transport) < 0) {
-                SliceMessengerFactory.transport.push(transport)
+            if (SliceMessengerFactory.transports.indexOf(transport) < 0) {
+                SliceMessengerFactory.transports.push(transport)
             }
         }
     }
@@ -79,30 +79,35 @@ class SliceMessengerFactory {
     }
 
     /**
+     * Get available transport
+     * @param {string} id SliceMessage id.
+     * @param {SliceMessageTransport} transport SliceMessageTransport instance.
+     * @return {SliceMessenger} created SliceMessenger instance
+     * @public
+     */
+    static getAvailableTransport() {
+        let transport = null
+        if (SliceMessengerFactory.transports.length) {
+            SliceMessengerFactory.transports.some((item) => {
+                if (item.isAvailable()) {
+                    transport = item
+                    return true
+                }
+                return false
+            })
+        }
+        return transport
+    }
+
+    /**
      * Create messenger
      * @param {string} id SliceMessage id.
      * @param {SliceMessageTransport} transport SliceMessageTransport instance.
      * @return {SliceMessenger} created SliceMessenger instance
      * @public
      */
-    static createMessenger(id = SliceMessengerFactory.getIdFromURL(location.search), transport) {
-        if (!id) {
-            throw new Error('Can\'t create messenger without id.')
-        }
-        let messengerTransport = transport
-        if (!messengerTransport && SliceMessengerFactory.transport.length) {
-            SliceMessengerFactory.transport.some((item) => {
-                if (item.isAvailable()) {
-                    messengerTransport = item
-                    return true
-                }
-                return false
-            })
-        }
-        if (!messengerTransport) {
-            throw new Error('Can\'t create messenger without transport.')
-        }
-        return new SliceMessenger(id, messengerTransport)
+    static createMessenger(id = SliceMessengerFactory.getIdFromURL(location.search), transport = SliceMessengerFactory.getAvailableTransport()) {
+        return new SliceMessenger(id, transport)
     }
 }
 

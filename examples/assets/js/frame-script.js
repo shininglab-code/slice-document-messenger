@@ -92,7 +92,6 @@
             })
             .addEventListener('click', removeBlockListener);
     }
-
     // example of message box, to handle multiple messages
     var messageBoxSettings = {
         // message handlers
@@ -103,7 +102,7 @@
             createBlock: {
                 /**
                  * if 'self' is set to true, message will be handled by SliceMessageBox
-                 * so you can extend SliceMessageBox and add message recievers methods in it
+                 * so you can extend SliceMessageBox and add message receivers methods in it
                 */
                 self: false,
                 handler: 'createBlock'
@@ -136,7 +135,6 @@
         }
     }, messageBoxSettings);
     messenger.addBox(messageBox);
-
     /**
      * You can also send messages from message box
      * if you provided it with messenger

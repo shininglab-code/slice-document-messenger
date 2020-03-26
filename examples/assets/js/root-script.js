@@ -99,7 +99,6 @@
         // send message to create block
         messenger.send('createBlock', blockData);
     }
-
     // create block with form data on form submit
     var blocksForm = document.getElementById('root-blocks-form')
     blocksForm.addEventListener('submit', function(e) {
@@ -112,13 +111,11 @@
         });
         this.reset();
     });
-
     // get block element text, by element class
     function getBlockElementText(block, className) {
         var elements = block.getElementsByClassName(className);
         return elements.length ? elements[0].textContent : '';
     }
-
     // handle exsisting blocks
     var blocks = document.getElementById(containerId).querySelectorAll('[data-id]');
 
@@ -128,7 +125,6 @@
             element.addEventListener('click', removeBlockListener);
         });
     });
-
     function sendBlocks() {
         var blocks = document.getElementById(containerId).querySelectorAll('[data-id]');
         var blocksData = [];
@@ -146,15 +142,14 @@
         });
         messenger.send('blocks', blocksData);
     }
-
-    /* Messages recievers */
-    // add reciever, to handle remove block message
+    /* Messages receivers */
+    // add receiver, to handle remove block message
     messenger.addReceiver('removeBlock', function(message) {
         if (message.data && message.data.id) {
             removeBlock(message.data.id);
         }
     });
-    // add reciever, to handle request blocks message
+    // add receiver, to handle request blocks message
     messenger.addReceiver('requestBlocks', function(message) {
         // when blocks are requested, send existing blocks
         sendBlocks();

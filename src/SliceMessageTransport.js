@@ -73,7 +73,7 @@ class SliceMessageTransport {
     }
     /**
      * Has any reciever with such address
-     * @param {string} address Recievers address.
+     * @param {string} address Receivers address.
      * @param {boolean} isTransport Is transport address.
      * @return {boolean} true|false
      * @public

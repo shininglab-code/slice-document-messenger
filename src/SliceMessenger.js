@@ -11,7 +11,7 @@ import SliceMessageTransport from './SliceMessageTransport.js'
 /* import end */
 
 /**
- * Send and recieve messages throught browser.
+ * Send and receive messages throught browser.
  */
 class SliceMessenger {
     /**
@@ -60,7 +60,7 @@ class SliceMessenger {
         return this
     }
     /**
-     * Send message to outer recievers
+     * Send message to outer receivers
      * @param {string} name SliceMessage name.
      * @param {object} data SliceMessage data.
      * @param {variable} timeout SliceMessage timeout.
@@ -130,12 +130,12 @@ class SliceMessenger {
             }, timeout === true ? 0 : timeout)
         } else {
             const message = SliceMessage.create(name, data)
-            this.transport.recieve(this.id, message)
+            this.transport.receive(this.id, message)
         }
         return this
     }
     /**
-     * Send message to the current window/frame and outer recievers.
+     * Send message to the current window/frame and outer receivers.
      * @param {string} name SliceMessage name.
      * @param {object} data SliceMessage data.
      * @param {variable} timeout SliceMessage timeout.

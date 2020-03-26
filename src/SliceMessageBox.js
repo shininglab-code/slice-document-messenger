@@ -24,7 +24,6 @@ class SliceMessageBox {
     constructor(owner = {}, settings = {}, messenger, subscribe) {
         this.settings = settings
         this.owner = owner
-        this.timeouts = {}
         if (messenger) {
             this.setMessenger(messenger, subscribe)
         }
@@ -80,7 +79,7 @@ class SliceMessageBox {
 
             if (handler) {
                 handler(message)
-            } else {
+            } else if (handlerSettings) {
                 throw new Error(`Can't handle message ${message.name}.`)
             }
         }
@@ -135,7 +134,7 @@ class SliceMessageBox {
         return this
     }
     /**
-     * Send message to the current window/frame and outer recievers.
+     * Send message to the current window/frame and outer receivers.
      * @param {string} name SliceMessage name.
      * @param {object} data SliceMessage data.
      * @param {variable} timeout SliceMessage timeout.

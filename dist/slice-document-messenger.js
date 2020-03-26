@@ -201,7 +201,6 @@
 
       this.settings = settings;
       this.owner = owner;
-      this.timeouts = {};
 
       if (messenger) {
         this.setMessenger(messenger, subscribe);
@@ -252,7 +251,7 @@
 
         if (handler) {
           handler(message);
-        } else {
+        } else if (handlerSettings) {
           throw new Error("Can't handle message " + message.name + ".");
         }
       }
@@ -411,7 +410,7 @@
         }, timeout === true ? 0 : timeout);
       } else {
         var message = SliceMessage.create(name, data);
-        this.transport.recieve(this.id, message);
+        this.transport.receive(this.id, message);
       }
 
       return this;
@@ -487,8 +486,8 @@
 
     SliceMessengerFactory.addTransport = function addTransport(transport) {
       if (transport instanceof SliceMessageTransport) {
-        if (SliceMessengerFactory.transport.indexOf(transport) < 0) {
-          SliceMessengerFactory.transport.push(transport);
+        if (SliceMessengerFactory.transports.indexOf(transport) < 0) {
+          SliceMessengerFactory.transports.push(transport);
         }
       }
     };
@@ -541,21 +540,13 @@
       return id;
     };
 
-    SliceMessengerFactory.createMessenger = function createMessenger(id, transport) {
-      if (id === void 0) {
-        id = SliceMessengerFactory.getIdFromURL(location.search);
-      }
+    SliceMessengerFactory.getAvailableTransport = function getAvailableTransport() {
+      var transport = null;
 
-      if (!id) {
-        throw new Error('Can\'t create messenger without id.');
-      }
-
-      var messengerTransport = transport;
-
-      if (!messengerTransport && SliceMessengerFactory.transport.length) {
-        SliceMessengerFactory.transport.some(function (item) {
+      if (SliceMessengerFactory.transports.length) {
+        SliceMessengerFactory.transports.some(function (item) {
           if (item.isAvailable()) {
-            messengerTransport = item;
+            transport = item;
             return true;
           }
 
@@ -563,17 +554,25 @@
         });
       }
 
-      if (!messengerTransport) {
-        throw new Error('Can\'t create messenger without transport.');
+      return transport;
+    };
+
+    SliceMessengerFactory.createMessenger = function createMessenger(id, transport) {
+      if (id === void 0) {
+        id = SliceMessengerFactory.getIdFromURL(location.search);
       }
 
-      return new SliceMessenger(id, messengerTransport);
+      if (transport === void 0) {
+        transport = SliceMessengerFactory.getAvailableTransport();
+      }
+
+      return new SliceMessenger(id, transport);
     };
 
     return SliceMessengerFactory;
   }();
 
-  _defineProperty(SliceMessengerFactory, "transport", []);
+  _defineProperty(SliceMessengerFactory, "transports", []);
 
   SliceMessengerFactory.addTransport(new SliceLocalStorageTransport());
   window.SliceMessage = SliceMessage;
