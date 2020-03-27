@@ -8,7 +8,7 @@
 #### `constructor()`
 
 [SliceLocalStorageTransport](#slicelocalstoragetransport) constructor.  
-Add [storage](https://developer.mozilla.org/docs/Web/API/Window/storage_event) event listener for receiving data from [localStorage](https://developer.mozilla.org/docs/Web/API/Window/localStorage).
+Adds [storage](https://developer.mozilla.org/docs/Web/API/Window/storage_event) event listener to receive data from [localStorage](https://developer.mozilla.org/docs/Web/API/Window/localStorage).
 
 ###### Example:
 
