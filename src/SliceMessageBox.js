@@ -57,7 +57,6 @@ class SliceMessageBox {
     receive(message) {
         if (message.name) {
             const settings = this.settings
-            let handler = null
             let handlerSettings = settings.handlers && settings.handlers.hasOwnProperty(message.name) ?
                 settings.handlers[message.name] : settings.defaultHandler || null
             if (handlerSettings) {
@@ -67,20 +66,13 @@ class SliceMessageBox {
                         handler: handlerSettings
                     }
                 }
-                if (handlerSettings.self) {
-                    if (this[handlerSettings.handler]) {
-                        handler = this[handlerSettings.handler]
-                        this[handlerSettings.handler](message)
-                    }
-                } else if (this.owner[handlerSettings.handler]) {
-                    handler = this.owner[handlerSettings.handler]
+                const handlerData = handlerSettings.onlyData ? message.data : message
+                const handlerCaller = handlerSettings.self ? this : this.owner
+                if (handlerCaller[handlerSettings.handler]) {
+                    handlerCaller[handlerSettings.handler](handlerData)
+                } else {
+                    throw new Error(`Can't handle message ${message.name}.`)
                 }
-            }
-
-            if (handler) {
-                handler(message)
-            } else if (handlerSettings) {
-                throw new Error(`Can't handle message ${message.name}.`)
             }
         }
         return this
