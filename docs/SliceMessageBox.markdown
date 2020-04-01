@@ -96,7 +96,7 @@ const messenger1 = SliceMessengerFactory.create('myMessenger1');
 myMessageBox.setMessenger(messenger1, true);
 // now it receives messages from messenger1 and can send messages through it
 // create another messenger
-const messenger2 = SliceMessengerFactory.create('myMessenger1');
+const messenger2 = SliceMessengerFactory.create('myMessenger2');
 // set messenger, but don't subscribe to it, and unsubscribe from messenger1
 myMessageBox.setMessenger(messenger2, false, true);
 // now it doesn't receive messages from messengers, but can send messages through messenger2
@@ -124,7 +124,7 @@ myMessageBox.receive(myMessage);
 ##### `send(name, data, timeout)`
 
 Send message throught [SliceMessenger](SliceMessenger.markdown) and is a quirk for [SliceMessenger.send](SliceMessenger.markdown#sendname-data-timeout).  
-***If [SliceMessenger](SliceMessenger.markdown) wasn't provided with [constructor](#constructorowner-settings-messenger-subscribe) or [setMessenger](#setMessengermessenger-subscribe-unsubscribe) method, will throw Error "Can't send message: no messenger provided."***
+***If [SliceMessenger](SliceMessenger.markdown) wasn't provided with [constructor](#constructorowner---settings---messenger-subscribe) or [setMessenger](#setMessengermessenger-subscribe-unsubscribe) method, will throw Error "Can't send message: no messenger provided."***
 
 ###### Example:
 
@@ -142,7 +142,7 @@ myMessageBox.send('myMessage', {
 ##### `sendSelf(name, data, timeout)`
 
 Send message to the current [SliceMessenger](SliceMessenger.markdown) only, is a quirk for [SliceMessenger.sendSelf](SliceMessenger.markdown#sendselfname-data-timeout).  
-***If [SliceMessenger](SliceMessenger.markdown) wasn't provided with [constructor](#constructorowner-settings-messenger-subscribe) or [setMessenger](#setMessengermessenger-subscribe-unsubscribe) method, will throw Error "Can't send message: no messenger provided."***
+***If [SliceMessenger](SliceMessenger.markdown) wasn't provided with [constructor](#constructorowner---settings---messenger-subscribe) or [setMessenger](#setMessengermessenger-subscribe-unsubscribe) method, will throw Error "Can't send message: no messenger provided."***
 
 ###### Example:
 
@@ -160,7 +160,7 @@ myMessageBox.sendSelf('myMessage', {
 ##### `sendCurrent(name, data, timeout)`
 
 Send message throught [SliceMessenger](SliceMessenger.markdown) to the current window/frame, is a quirk for [SliceMessenger.sendCurrent](SliceMessenger.markdown#sendcurrentname-data-timeout).  
-***If [SliceMessenger](SliceMessenger.markdown) wasn't provided with [constructor](#constructorowner-settings-messenger-subscribe) or [setMessenger](#setMessengermessenger-subscribe-unsubscribe) method, will throw Error "Can't send message: no messenger provided."***
+***If [SliceMessenger](SliceMessenger.markdown) wasn't provided with [constructor](#constructorowner---settings---messenger-subscribe) or [setMessenger](#setMessengermessenger-subscribe-unsubscribe) method, will throw Error "Can't send message: no messenger provided."***
 
 ###### Example:
 
@@ -178,7 +178,7 @@ myMessageBox.sendCurrent('myMessage', {
 ##### `sendEveryone(name, data, timeout)`
 
 Send message throught [SliceMessenger](SliceMessenger.markdown) to the current window/frame and outer receivers, is a quirk for [SliceMessenger.sendEveryone](SliceMessenger.markdown#sendeveryonename-data-timeout).  
-***If [SliceMessenger](SliceMessenger.markdown) wasn't provided with [constructor](#constructorowner-settings-messenger-subscribe) or [setMessenger](#setMessengermessenger-subscribe-unsubscribe) method, will throw Error "Can't send message: no messenger provided."***
+***If [SliceMessenger](SliceMessenger.markdown) wasn't provided with [constructor](#constructorowner---settings---messenger-subscribe) or [setMessenger](#setMessengermessenger-subscribe-unsubscribe) method, will throw Error "Can't send message: no messenger provided."***
 
 ###### Example:
 
